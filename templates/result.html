@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+    <h1 id="greeting"></h1>
+
+    <div class="message-box">
+        <p id="message"></p>
+    </div>
+
+</div>
+
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const name = params.get("name");
+
+const message = params.get("message");
+
+document.getElementById("greeting").textContent =
+    "Hello, " + (name || "Guest") + "!";
+
+document.getElementById("message").textContent =
+    message || "No message provided.";
+
+</script>
+
+</body>
+</html>
